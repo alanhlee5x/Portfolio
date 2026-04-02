@@ -12,6 +12,7 @@ export default function AlanLeePortfolio() {
   const [pathname, setPathname] = useState(
     typeof window !== "undefined" ? window.location.pathname : "/"
   );
+  const [heroProgress, setHeroProgress] = useState(0);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 180);
@@ -28,6 +29,23 @@ export default function AlanLeePortfolio() {
     window.addEventListener("popstate", handlePopState);
     return () => window.removeEventListener("popstate", handlePopState);
   }, []);
+
+  useEffect(() => {
+    if (pathname !== "/") {
+      setHeroProgress(0);
+      return;
+    }
+
+    const handleScroll = () => {
+      const heroHeight = window.innerHeight * 0.9;
+      const nextValue = Math.min(window.scrollY / heroHeight, 1);
+      setHeroProgress(nextValue);
+    };
+
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pathname]);
 
   const reveal = (delay = "delay-0") =>
     `${
@@ -146,155 +164,165 @@ export default function AlanLeePortfolio() {
 
   const homePage = (
     <>
-      <section
-        className={`relative overflow-hidden border-b border-[#e4ddd3] ${reveal("delay-100")}`}
-      >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(124,63,44,0.08),transparent_24%),radial-gradient(circle_at_bottom_center,rgba(31,28,25,0.04),transparent_18%)]" />
+      <section className="relative">
+        <div
+          className="fixed inset-x-0 top-[77px] z-0 flex h-[calc(100vh-77px)] items-center justify-center overflow-hidden border-b border-[#e4ddd3]"
+          style={{
+            opacity: 1 - heroProgress * 0.8,
+            transform: `scale(${1 - heroProgress * 0.035})`,
+          }}
+        >
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(124,63,44,0.08),transparent_24%),radial-gradient(circle_at_bottom_center,rgba(31,28,25,0.04),transparent_18%)]" />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 py-28 text-center md:px-10 md:py-40">
-          <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#6f655b] md:text-xs">
-            <span>Construction Management</span>
-            <span className="text-[#7c3f2c]">•</span>
-            <span>Real Estate</span>
-            <span className="text-[#7c3f2c]">•</span>
-            <span>Business</span>
-          </div>
-
-          <div className="mt-8 flex flex-col items-center space-y-8">
-            <div className="flex flex-col items-center">
-              <h2 className="max-w-6xl text-6xl leading-[0.88] tracking-[-0.05em] text-[#1f1c19] md:text-[8rem] xl:text-[10rem]">
-                Alan H. <span className="text-[#7c3f2c]">Lee</span>
-              </h2>
-              <p
-                className={`mt-4 text-sm uppercase tracking-[0.25em] text-[#8b8175] whitespace-nowrap transition-all duration-1200 ease-out ${
-                  isLoaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"
-                }`}
-              >
-                Seattle, Washington
-              </p>
-
-              <div className="mt-4 h-px w-32 bg-[#7c3f2c]/80" />
+          <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 text-center md:px-10">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#6f655b] md:text-xs">
+              <span>Construction Management</span>
+              <span className="text-[#7c3f2c]">•</span>
+              <span>Real Estate</span>
+              <span className="text-[#7c3f2c]">•</span>
+              <span>Business</span>
             </div>
 
-            <p className="max-w-3xl text-lg leading-9 text-[#4b443d] md:text-[24px]">
-              Construction Management senior at the University of Washington,
-              currently working as a Project Engineer at Venture General
-              Contractors, with a growing focus on residential development and
-              strong interests in business, sales, and management.
-            </p>
+            <div className="mt-8 flex flex-col items-center space-y-8">
+              <div className="flex flex-col items-center">
+                <h2 className="max-w-6xl text-6xl leading-[0.88] tracking-[-0.05em] text-[#1f1c19] md:text-[8rem] xl:text-[10rem]">
+                  Alan H. <span className="text-[#7c3f2c]">Lee</span>
+                </h2>
+                <p
+                  className={`mt-4 whitespace-nowrap text-sm uppercase tracking-[0.25em] text-[#8b8175] transition-all duration-1200 ease-out ${
+                    isLoaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"
+                  }`}
+                >
+                  Seattle, Washington
+                </p>
+
+                <div className="mt-4 h-px w-32 bg-[#7c3f2c]/80" />
+              </div>
+
+              <p className="max-w-3xl text-lg leading-9 text-[#4b443d] md:text-[24px]">
+                Construction Management senior at the University of Washington,
+                currently working as a Project Engineer at Venture General
+                Contractors, with a growing focus on residential development and
+                strong interests in business, sales, and management.
+              </p>
+            </div>
           </div>
         </div>
-      </section>
 
-      <section
-        id="resume"
-        className={`border-y border-[#e4ddd3] bg-[#efe9e1] ${reveal("delay-200")}`}
-      >
-        <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
-          <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
+        <div className="h-[calc(100vh-77px)]" />
+
+        <div className="relative z-10 -mt-[10vh] rounded-t-[2.5rem] border-x border-t border-[#e4ddd3] bg-[#f7f4ef] shadow-[0_-18px_50px_rgba(31,28,25,0.08)]">
+          <section
+            id="resume"
+            className={`rounded-t-[2.5rem] border-b border-[#e4ddd3] bg-[#efe9e1] ${reveal("delay-200")}`}
+          >
+            <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+              <div className="mb-12 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[#8b8175]">
+                    Experience
+                  </p>
+                  <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Resume</h3>
+                </div>
+                <a
+                  href="#"
+                  className="w-fit rounded-full border border-[#d6cec2] bg-[#fbf9f5] px-6 py-3 text-sm uppercase tracking-[0.18em] text-[#2f2a25] transition hover:-translate-y-0.5 hover:bg-white"
+                >
+                  Download Resume
+                </a>
+              </div>
+
+              <div className="grid gap-6">
+                {resumeItems.map((item, index) => (
+                  <div
+                    key={index}
+                    className="grid gap-5 rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_40px_rgba(31,28,25,0.06)] md:grid-cols-[0.25fr_0.75fr]"
+                  >
+                    <div>
+                      <p className="text-sm uppercase tracking-[0.28em] text-[#8b8175]">
+                        {item.period}
+                      </p>
+                    </div>
+                    <div>
+                      <h4 className="text-[28px] leading-tight text-[#1f1c19]">
+                        {item.title}
+                      </h4>
+                      <p className="mt-2 text-sm uppercase tracking-[0.22em] text-[#7c3f2c]">
+                        {item.company}
+                      </p>
+                      <p className="mt-5 max-w-3xl text-lg leading-8 text-[#4b443d]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <section
+            id="gallery"
+            className={`mx-auto max-w-7xl px-6 py-24 md:px-10 ${reveal("delay-300")}`}
+          >
+            <div className="mb-12">
               <p className="text-xs uppercase tracking-[0.35em] text-[#8b8175]">
-                Experience
+                Selected Work
               </p>
-              <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Resume</h3>
+              <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Gallery</h3>
             </div>
-            <a
-              href="#"
-              className="w-fit rounded-full border border-[#d6cec2] bg-[#fbf9f5] px-6 py-3 text-sm uppercase tracking-[0.18em] text-[#2f2a25] transition hover:-translate-y-0.5 hover:bg-white"
-            >
-              Download Resume
-            </a>
-          </div>
 
-          <div className="grid gap-6">
-            {resumeItems.map((item, index) => (
-              <div
-                key={index}
-                className="grid gap-5 rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_40px_rgba(31,28,25,0.06)] md:grid-cols-[0.25fr_0.75fr]"
-              >
-                <div>
-                  <p className="text-sm uppercase tracking-[0.28em] text-[#8b8175]">
-                    {item.period}
-                  </p>
+            <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+              {galleryItems.map((item, index) => (
+                <div
+                  key={index}
+                  className="group overflow-hidden rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] shadow-[0_16px_38px_rgba(31,28,25,0.05)] transition duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#b9aa96] hover:shadow-[0_28px_60px_rgba(31,28,25,0.12)]"
+                >
+                  <div className="relative h-72 overflow-hidden bg-[#ebe4da]">
+                    <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.18),rgba(124,63,44,0.08),rgba(31,28,25,0.04))] transition duration-300 group-hover:scale-105" />
+                  </div>
+                  <div className="space-y-2 p-6">
+                    <h4 className="text-2xl leading-tight text-[#1f1c19]">
+                      {item.title}
+                    </h4>
+                    <p className="leading-7 text-[#5f574f]">{item.subtitle}</p>
+                  </div>
                 </div>
-                <div>
-                  <h4 className="text-[28px] leading-tight text-[#1f1c19]">
-                    {item.title}
-                  </h4>
-                  <p className="mt-2 text-sm uppercase tracking-[0.22em] text-[#7c3f2c]">
-                    {item.company}
-                  </p>
-                  <p className="mt-5 max-w-3xl text-lg leading-8 text-[#4b443d]">
-                    {item.description}
-                  </p>
+              ))}
+            </div>
+          </section>
+
+          <section
+            id="contact"
+            className={`border-t border-[#d9d0c4] bg-[#f3eee7] text-[#1f1c19] ${reveal("delay-500")}`}
+          >
+            <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
+              <div className="mb-12">
+                <p className="text-xs uppercase tracking-[0.35em] text-[#7c3f2c]">
+                  Contact
+                </p>
+                <h3 className="mt-5 text-4xl md:text-5xl">Let’s connect.</h3>
+              </div>
+
+              <div className="grid gap-8 md:grid-cols-2">
+                <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Email</p>
+                  <p className="text-xl">Alanhlee5x@gmail.com</p>
+                </div>
+                <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Phone</p>
+                  <p className="text-xl">469-740-6508</p>
+                </div>
+                <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Location</p>
+                  <p className="text-xl">Seattle, Washington</p>
+                </div>
+                <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
+                  <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">LinkedIn</p>
+                  <p className="text-xl">linkedin.com/in/alan-leee</p>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section
-        id="gallery"
-        className={`mx-auto max-w-7xl px-6 py-24 md:px-10 ${reveal("delay-300")}`}
-      >
-        <div className="mb-12">
-          <p className="text-xs uppercase tracking-[0.35em] text-[#8b8175]">
-            Selected Work
-          </p>
-          <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Gallery</h3>
-        </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {galleryItems.map((item, index) => (
-            <div
-              key={index}
-              className="group overflow-hidden rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] shadow-[0_16px_38px_rgba(31,28,25,0.05)] transition duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#b9aa96] hover:shadow-[0_28px_60px_rgba(31,28,25,0.12)]"
-            >
-              <div className="relative h-72 overflow-hidden bg-[#ebe4da]">
-                <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.18),rgba(124,63,44,0.08),rgba(31,28,25,0.04))] transition duration-300 group-hover:scale-105" />
-              </div>
-              <div className="space-y-2 p-6">
-                <h4 className="text-2xl leading-tight text-[#1f1c19]">
-                  {item.title}
-                </h4>
-                <p className="leading-7 text-[#5f574f]">{item.subtitle}</p>
-              </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section
-        id="contact"
-        className={`border-t border-[#d9d0c4] bg-[#f3eee7] text-[#1f1c19] ${reveal("delay-500")}`}
-      >
-        <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
-          <div className="mb-12">
-            <p className="text-xs uppercase tracking-[0.35em] text-[#7c3f2c]">
-              Contact
-            </p>
-            <h3 className="mt-5 text-4xl md:text-5xl">Let’s connect.</h3>
-          </div>
-
-          <div className="grid gap-8 md:grid-cols-2">
-            <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
-              <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Email</p>
-              <p className="text-xl">Alanhlee5x@gmail.com</p>
-            </div>
-            <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
-              <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Phone</p>
-              <p className="text-xl">469-740-6508</p>
-            </div>
-            <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
-              <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Location</p>
-              <p className="text-xl">Seattle, Washington</p>
-            </div>
-            <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
-              <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">LinkedIn</p>
-              <p className="text-xl">linkedin.com/in/alan-leee</p>
-            </div>
-          </div>
+          </section>
         </div>
       </section>
     </>
