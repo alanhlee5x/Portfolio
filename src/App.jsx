@@ -1,5 +1,31 @@
 import { useEffect, useState } from "react";
 
+const MailIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mt-1 h-7 w-7 text-[#7c3f2c] transition-transform duration-200 group-hover:scale-110" aria-hidden="true">
+    <rect x="3" y="5" width="18" height="14" rx="2" />
+    <path d="M4 7l8 6 8-6" />
+  </svg>
+);
+
+const PhoneIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mt-1 h-7 w-7 text-[#7c3f2c] transition-transform duration-200 group-hover:scale-110" aria-hidden="true">
+    <path d="M22 16.92v2a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.12 3.18 2 2 0 0 1 4.11 1h2a2 2 0 0 1 2 1.72c.12.9.33 1.78.62 2.62a2 2 0 0 1-.45 2.11L7.09 8.91a16 16 0 0 0 8 8l1.46-1.19a2 2 0 0 1 2.11-.45c.84.29 1.72.5 2.62.62A2 2 0 0 1 22 16.92z" />
+  </svg>
+);
+
+const MapPinIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mt-1 h-7 w-7 text-[#7c3f2c] transition-transform duration-200 group-hover:scale-110" aria-hidden="true">
+    <path d="M12 21s-6-5.33-6-11a6 6 0 1 1 12 0c0 5.67-6 11-6 11z" />
+    <circle cx="12" cy="10" r="2.5" />
+  </svg>
+);
+
+const LinkedInIcon = () => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className="mt-1 h-7 w-7 text-[#7c3f2c] transition-transform duration-200 group-hover:scale-110" aria-hidden="true">
+    <path d="M6.94 8.5H3.56V20h3.38V8.5zM5.25 3A1.97 1.97 0 1 0 5.3 6.94 1.97 1.97 0 0 0 5.25 3zM20.44 12.5c0-3.07-1.64-4.5-3.83-4.5-1.76 0-2.55.97-2.99 1.65V8.5h-3.38c.04.76 0 11.5 0 11.5h3.38v-6.42c0-.34.02-.68.12-.92.27-.68.9-1.39 1.95-1.39 1.38 0 1.93 1.05 1.93 2.59V20H21v-7.5-.01z" />
+  </svg>
+);
+
 export default function AlanLeePortfolio() {
   const [isLoaded, setIsLoaded] = useState(false);
   const [pathname, setPathname] = useState(
@@ -58,23 +84,23 @@ export default function AlanLeePortfolio() {
 
   const resumeItems = [
     {
-      title: "Project Management Intern",
-      company: "MN Custom Homes",
-      period: "2025",
-      description:
-        "Worked across high-end residential projects, helping coordinate subcontractors, track punch lists, support quality control, and stay involved in day-to-day site operations.",
-    },
-    {
       title: "Construction Management Student",
       company: "University of Washington",
-      period: "Present",
+      period: "Expected June 2026",
       description:
         "Focused on construction operations, project delivery, scheduling, estimating, and field coordination.",
     },
     {
+      title: "Project Management Intern",
+      company: "MN Custom Homes",
+      period: "June 2025 - September 2025",
+      description:
+        "Worked across high-end residential projects, helping coordinate subcontractors, track punch lists, support quality control, and stay involved in day-to-day site operations.",
+    },
+    {
       title: "Program Mentor",
       company: "Sawhorse Revolution",
-      period: "Past Experience",
+      period: "2022 - 2024",
       description:
         "Mentored students in hands-on building work, power tool safety, and jobsite habits.",
     },
@@ -194,8 +220,7 @@ export default function AlanLeePortfolio() {
 
               <p className="max-w-3xl text-lg leading-9 text-[#4b443d] md:text-[24px]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
                 Construction Management senior at the University of Washington,
-                currently working as a Project Engineer at Venture General
-                Contractors, with a growing focus on residential development and
+                currently working as a Project Engineer at Venture General Contracting, with a growing focus on residential development and
                 strong interests in business, sales, and management.
               </p>
             </div>
@@ -230,28 +255,54 @@ export default function AlanLeePortfolio() {
 
                 <div className="grid gap-6">
                   {resumeItems.map((item, index) => (
-                    <div
-                      key={index}
-                      className="grid gap-5 rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_40px_rgba(31,28,25,0.06)] md:grid-cols-[0.25fr_0.75fr]"
-                    >
-                      <div>
-                        <p className="text-sm uppercase tracking-[0.28em] text-[#8b8175]">
-                          {item.period}
-                        </p>
-                      </div>
-                      <div>
-                        <h4 className="text-[28px] leading-tight text-[#1f1c19]">
-                          {item.title}
-                        </h4>
-                        <p className="mt-2 text-sm uppercase tracking-[0.22em] text-[#7c3f2c]">
-                          {item.company}
-                        </p>
-                        <p className="mt-5 max-w-3xl text-lg leading-8 text-[#4b443d]">
-                          {item.description}
-                        </p>
-                      </div>
+                  <div
+                    key={index}
+                    className="grid gap-5 rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_40px_rgba(31,28,25,0.06)] md:grid-cols-[0.25fr_0.75fr]"
+                  >
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.18em] text-[#8b8175] whitespace-nowrap">
+                        {item.period}
+                      </p>
                     </div>
-                  ))}
+                    <div>
+                      <h4 className="text-[28px] leading-tight text-[#1f1c19]">
+                        {item.title}
+                      </h4>
+                      <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[#7c3f2c] whitespace-nowrap">
+                        {item.company}
+                      </p>
+                      <p className="mt-5 max-w-3xl text-lg leading-8 text-[#4b443d]">
+                        {item.description}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+
+                </div>
+
+                {/* Toolkit + Enjoys Cards */}
+                <div className="mt-10 grid gap-6 md:grid-cols-2">
+                  <div className="group rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_38px_rgba(31,28,25,0.05)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)]">
+                    <h4 className="text-2xl text-[#1f1c19] mb-4">Toolkit</h4>
+                    <ul className="space-y-2 text-[#4b443d]">
+                      <li>Scheduling (P6, MS Project)</li>
+                      <li>Estimating & Takeoffs</li>
+                      <li>Field Coordination</li>
+                      <li>Bluebeam / Plan Reading</li>
+                      <li>Excel / Cost Tracking</li>
+                    </ul>
+                  </div>
+
+                  <div className="group rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_38px_rgba(31,28,25,0.05)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)]">
+                    <h4 className="text-2xl text-[#1f1c19] mb-4">Enjoys</h4>
+                    <ul className="space-y-2 text-[#4b443d]">
+                      <li>Hands-on Building - Carpentry</li>
+                      <li>Real Estate & Development</li>
+                      <li>Photography</li>
+                      <li>Travel</li>
+                      <li>Rock Climbing</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
             </section>
@@ -300,23 +351,42 @@ export default function AlanLeePortfolio() {
                 </div>
 
                 <div className="grid gap-8 md:grid-cols-2">
-                  <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Email</p>
-                    <p className="text-xl">Alanhlee5x@gmail.com</p>
-                  </div>
-                  <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Phone</p>
-                    <p className="text-xl">469-740-6508</p>
-                  </div>
-                  <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Location</p>
-                    <p className="text-xl">Seattle, Washington</p>
-                  </div>
-                  <div className="space-y-3 rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
-                    <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">LinkedIn</p>
-                    <p className="text-xl">linkedin.com/in/alan-leee</p>
-                  </div>
-                </div>
+  {/* Email */}
+  <a href="mailto:Alanhlee5x@gmail.com" className="group flex items-center justify-between rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6 hover:shadow-md transition">
+    <div className="space-y-3">
+      <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Email</p>
+      <p className="text-xl">Alanhlee5x@gmail.com</p>
+    </div>
+    <MailIcon />
+  </a>
+
+  {/* Phone */}
+  <div className="group flex items-center justify-between rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
+    <div className="space-y-3">
+      <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Phone</p>
+      <p className="text-xl">469-740-6508</p>
+    </div>
+    <PhoneIcon />
+  </div>
+
+  {/* Location */}
+  <div className="group flex items-center justify-between rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6">
+    <div className="space-y-3">
+      <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">Location</p>
+      <p className="text-xl">Seattle, Washington</p>
+    </div>
+    <MapPinIcon />
+  </div>
+
+  {/* LinkedIn */}
+  <a href="https://linkedin.com/in/alan-leee" target="_blank" rel="noopener noreferrer" className="group flex items-center justify-between rounded-[1.75rem] border border-[#ddd5ca] bg-[#faf7f2] p-6 hover:shadow-md transition">
+    <div className="space-y-3">
+      <p className="text-xs uppercase tracking-[0.24em] text-[#7c3f2c]">LinkedIn</p>
+      <p className="text-xl">linkedin.com/in/alan-leee</p>
+    </div>
+    <LinkedInIcon />
+  </a>
+</div>
               </div>
             </section>
           </div>
