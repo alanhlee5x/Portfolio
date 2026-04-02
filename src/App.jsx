@@ -210,7 +210,14 @@ export default function AlanLeePortfolio() {
             transform: `scale(${1 - heroProgress * 0.04})`,
           }}
         >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(124,63,44,0.08),transparent_24%),radial-gradient(circle_at_bottom_center,rgba(31,28,25,0.04),transparent_18%)]" />
+          <div className="absolute inset-0">
+            <img
+              src="/hero-bg.jpg"
+              alt="Hero background"
+              className="w-full h-full object-cover opacity-60"
+            />
+            <div className="absolute inset-0 bg-white/40" />
+          </div>
 
           <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 text-center md:px-10">
             <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#6f655b] md:text-xs">
