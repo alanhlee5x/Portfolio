@@ -93,14 +93,14 @@ export default function AlanLeePortfolio() {
     {
       title: "Project Management Intern",
       company: "MN Custom Homes",
-      period: "June 2025 - September 2025",
+      period: "June 2025 - Sept 2025",
       description:
         "Worked across high-end residential projects, helping coordinate subcontractors, track punch lists, support quality control, and stay involved in day-to-day site operations.",
     },
     {
       title: "Program Mentor",
       company: "Sawhorse Revolution",
-      period: "2022 - 2024",
+      period: "Sept 2022 - Dec 2024",
       description:
         "Mentored students in hands-on building work, power tool safety, and jobsite habits.",
     },
@@ -185,7 +185,7 @@ export default function AlanLeePortfolio() {
     <>
       <section className="relative">
         <div
-          className="fixed inset-x-0 top-[77px] z-0 flex h-[calc(100vh-77px)] items-center justify-center overflow-hidden border-b border-[#e4ddd3]"
+          className="fixed inset-x-0 top-[77px] z-0 flex h-[calc(100vh-77px)] items-center justify-center overflow-hidden border-b border-[#e4ddd3] pointer-events-none"
           style={{
             opacity: 1 - heroProgress,
             transform: `scale(${1 - heroProgress * 0.04})`,
@@ -253,11 +253,11 @@ export default function AlanLeePortfolio() {
                   </a>
                 </div>
 
-                <div className="grid gap-6">
+                <div className="grid gap-6 md:auto-rows-fr">
                   {resumeItems.map((item, index) => (
                   <div
                     key={index}
-                    className="grid gap-5 rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_40px_rgba(31,28,25,0.06)] md:grid-cols-[0.25fr_0.75fr]"
+                    className="h-full grid gap-5 rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_40px_rgba(31,28,25,0.06)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)] md:grid-cols-[0.25fr_0.75fr]"
                   >
                     <div>
                       <p className="text-xs uppercase tracking-[0.18em] text-[#8b8175] whitespace-nowrap">
