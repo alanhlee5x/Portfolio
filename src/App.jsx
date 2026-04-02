@@ -338,7 +338,7 @@ export default function AlanLeePortfolio() {
                   <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Project Gallery</h3>
                 </div>
 
-                <div className="hidden items-center gap-3 md:flex">
+                <div className="flex items-center gap-3">
                   <button
                     type="button"
                     onClick={() => scrollGallery("left")}
@@ -365,12 +365,13 @@ export default function AlanLeePortfolio() {
               <div className="relative -mx-3 px-3">
                 <div
                   ref={galleryScrollRef}
-                  className="flex gap-6 overflow-x-auto px-3 py-4 pb-6 snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#cfc6bb]"
+                  className="flex gap-6 overflow-x-auto overflow-y-visible px-3 py-4 pb-6 snap-x snap-mandatory"
+                  style={{ scrollbarWidth: "auto", WebkitOverflowScrolling: "touch" }}
                 >
                   {galleryItems.map((item, index) => (
                     <div
                       key={index}
-                      className="group relative z-0 min-w-[300px] md:min-w-[340px] xl:min-w-[360px] snap-start rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2]  transition duration-300 hover:z-10 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#b9aa96] "
+                      className="group relative z-0 w-[calc((100%-2rem)/3)] flex-shrink-0 snap-start rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] transition duration-300 hover:z-10 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#b9aa96] min-w-0"
                     >
                       <div className="relative h-72 bg-[#ebe4da] rounded-t-[2rem] overflow-hidden">
                         <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.18),rgba(124,63,44,0.08),rgba(31,28,25,0.04))] transition duration-300 group-hover:scale-105" />
@@ -513,4 +514,3 @@ export default function AlanLeePortfolio() {
     </div>
   );
 }
-
