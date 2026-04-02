@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const MailIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="mt-1 h-7 w-7 text-[#7c3f2c] transition-transform duration-200 group-hover:scale-110" aria-hidden="true">
@@ -32,6 +32,7 @@ export default function AlanLeePortfolio() {
     typeof window !== "undefined" ? window.location.pathname : "/"
   );
   const [heroProgress, setHeroProgress] = useState(0);
+  const galleryScrollRef = useRef(null);
 
   useEffect(() => {
     const timer = setTimeout(() => setIsLoaded(true), 180);
@@ -82,6 +83,16 @@ export default function AlanLeePortfolio() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const scrollGallery = (direction) => {
+    const container = galleryScrollRef.current;
+    if (!container) return;
+    const amount = Math.min(container.clientWidth * 0.8, 420);
+    container.scrollBy({
+      left: direction === "left" ? -amount : amount,
+      behavior: "smooth",
+    });
+  };
+
   const resumeItems = [
     {
       title: "Construction Management Student",
@@ -108,20 +119,28 @@ export default function AlanLeePortfolio() {
 
   const galleryItems = [
     {
-      title: "Residential Construction",
-      subtitle: "Field experience, coordination, and craftsmanship",
+      title: "Utility Shed",
+      subtitle: "Hands-on carpentry and small-structure construction",
     },
     {
-      title: "Project Documentation",
-      subtitle: "Planning, scheduling, and visual communication",
+      title: "Deck and Pergola",
+      subtitle: "Outdoor framing, detailing, and finish work",
     },
     {
-      title: "Hands-On Building",
-      subtitle: "Tools, materials, and learning through making",
+      title: "Farm Fence",
+      subtitle: "Site layout, assembly, and durable exterior work",
     },
     {
-      title: "Design + Construction",
-      subtitle: "An interest in both process and finished space",
+      title: "Farmer Tool Shed",
+      subtitle: "Functional storage built for community use",
+    },
+    {
+      title: "Duwamish Wooden Boat",
+      subtitle: "Collaborative build rooted in craft and purpose",
+    },
+    {
+      title: "Community Library",
+      subtitle: "Small public structure with local impact",
     },
   ];
 
@@ -282,7 +301,7 @@ export default function AlanLeePortfolio() {
 
                 {/* Toolkit + Enjoys Cards */}
                 <div className="mt-10 grid gap-6 md:grid-cols-2">
-                  <div className="group rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_38px_rgba(31,28,25,0.05)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)]">
+                  <div className="group rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7  transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)]">
                     <h4 className="text-2xl text-[#1f1c19] mb-4">Toolkit</h4>
                     <ul className="space-y-2 text-[#4b443d]">
                       <li>Scheduling (P6, MS Project)</li>
@@ -293,7 +312,7 @@ export default function AlanLeePortfolio() {
                     </ul>
                   </div>
 
-                  <div className="group rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7 shadow-[0_16px_38px_rgba(31,28,25,0.05)] transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)]">
+                  <div className="group rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7  transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)]">
                     <h4 className="text-2xl text-[#1f1c19] mb-4">Enjoys</h4>
                     <ul className="space-y-2 text-[#4b443d]">
                       <li>Hands-on Building - Carpentry</li>
@@ -311,30 +330,60 @@ export default function AlanLeePortfolio() {
               id="gallery"
               className={`mx-auto max-w-7xl px-6 py-24 md:px-10 ${reveal("delay-300")}`}
             >
-              <div className="mb-12">
-                <p className="text-xs uppercase tracking-[0.35em] text-[#8b8175]">
-                  Selected Work
-                </p>
-                <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Gallery</h3>
+              <div className="mb-12 flex items-end justify-between gap-6">
+                <div>
+                  <p className="text-xs uppercase tracking-[0.35em] text-[#8b8175]">
+                    Selected Work
+                  </p>
+                  <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Project Gallery</h3>
+                </div>
+
+                <div className="hidden items-center gap-3 md:flex">
+                  <button
+                    type="button"
+                    onClick={() => scrollGallery("left")}
+                    aria-label="Scroll gallery left"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d6cec2] bg-[#fbf9f5] text-[#2f2a25] transition hover:-translate-y-0.5 hover:bg-white"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                      <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => scrollGallery("right")}
+                    aria-label="Scroll gallery right"
+                    className="flex h-11 w-11 items-center justify-center rounded-full border border-[#d6cec2] bg-[#fbf9f5] text-[#2f2a25] transition hover:-translate-y-0.5 hover:bg-white"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
+                      <path d="M9 18l6-6-6-6" />
+                    </svg>
+                  </button>
+                </div>
               </div>
 
-              <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-                {galleryItems.map((item, index) => (
-                  <div
-                    key={index}
-                    className="group overflow-hidden rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] shadow-[0_16px_38px_rgba(31,28,25,0.05)] transition duration-300 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#b9aa96] hover:shadow-[0_28px_60px_rgba(31,28,25,0.12)]"
-                  >
-                    <div className="relative h-72 overflow-hidden bg-[#ebe4da]">
-                      <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.18),rgba(124,63,44,0.08),rgba(31,28,25,0.04))] transition duration-300 group-hover:scale-105" />
+              <div className="relative -mx-3 px-3">
+                <div
+                  ref={galleryScrollRef}
+                  className="flex gap-6 overflow-x-auto px-3 py-4 pb-6 snap-x snap-mandatory scrollbar-thin scrollbar-track-transparent scrollbar-thumb-[#cfc6bb]"
+                >
+                  {galleryItems.map((item, index) => (
+                    <div
+                      key={index}
+                      className="group relative z-0 min-w-[300px] md:min-w-[340px] xl:min-w-[360px] snap-start rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2]  transition duration-300 hover:z-10 hover:-translate-y-2 hover:scale-[1.02] hover:border-[#b9aa96] "
+                    >
+                      <div className="relative h-72 bg-[#ebe4da] rounded-t-[2rem] overflow-hidden">
+                        <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.18),rgba(124,63,44,0.08),rgba(31,28,25,0.04))] transition duration-300 group-hover:scale-105" />
+                      </div>
+                      <div className="space-y-2 p-6">
+                        <h4 className="text-2xl leading-tight text-[#1f1c19]">
+                          {item.title}
+                        </h4>
+                        <p className="leading-7 text-[#5f574f]">{item.subtitle}</p>
+                      </div>
                     </div>
-                    <div className="space-y-2 p-6">
-                      <h4 className="text-2xl leading-tight text-[#1f1c19]">
-                        {item.title}
-                      </h4>
-                      <p className="leading-7 text-[#5f574f]">{item.subtitle}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
             </section>
 
@@ -464,3 +513,4 @@ export default function AlanLeePortfolio() {
     </div>
   );
 }
+
