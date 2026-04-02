@@ -182,7 +182,7 @@ export default function AlanLeePortfolio() {
           <p className="text-xs uppercase tracking-[0.42em] text-[#8b8175]">
             Alan H. <span className="text-[#7c3f2c]">Lee</span>
           </p>
-          <h1 className="mt-1 text-lg text-[#1f1c19] md:text-xl">Portfolio</h1>
+          <h1 className="mt-1 text-lg text-black md:text-xl">Portfolio</h1>
         </button>
         <nav className="hidden gap-8 md:flex">
           {navItems.map((item) => (
@@ -230,7 +230,7 @@ export default function AlanLeePortfolio() {
 
             <div className="mt-8 flex flex-col items-center space-y-8">
               <div className="flex flex-col items-center">
-                <h2 className="max-w-6xl text-7xl leading-[0.88] tracking-[-0.05em] text-[#1f1c19] md:text-[10rem] xl:text-[12rem]" >
+                <h2 className="max-w-6xl text-7xl leading-[0.88] tracking-[-0.05em] text-black md:text-[10rem] xl:text-[12rem]" >
                   Alan H. <span className="text-[#7c3f2c]">Lee</span>
                 </h2>
                 <p
@@ -244,7 +244,7 @@ export default function AlanLeePortfolio() {
                 <div className="mt-4 h-px w-32 bg-[#7c3f2c]/80" />
               </div>
 
-              <p className="max-w-3xl text-lg leading-9 text-[#4b443d] md:text-[24px]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
+              <p className="max-w-3xl text-lg leading-9 text-black md:text-[24px]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
                 Construction Management senior at the University of Washington,
                 currently working as a Project Engineer at Venture General Contracting, with a growing focus on residential development and
                 strong interests in business, sales, and management.
@@ -267,7 +267,7 @@ export default function AlanLeePortfolio() {
                     <p className="text-xs uppercase tracking-[0.35em] text-[#8b8175]">
                       Experience
                     </p>
-                    <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Resume</h3>
+                    <h3 className="mt-5 text-4xl text-black md:text-5xl">Resume</h3>
                   </div>
                   <a
                     href="/resume.pdf"
@@ -291,13 +291,13 @@ export default function AlanLeePortfolio() {
                       </p>
                     </div>
                     <div>
-                      <h4 className="text-[28px] leading-tight text-[#1f1c19]">
+                      <h4 className="text-[28px] leading-tight text-black">
                         {item.title}
                       </h4>
                       <p className="mt-2 text-xs uppercase tracking-[0.18em] text-[#7c3f2c] whitespace-nowrap">
                         {item.company}
                       </p>
-                      <p className="mt-5 max-w-3xl text-lg leading-8 text-[#4b443d]">
+                      <p className="mt-5 max-w-3xl text-lg leading-8 text-black">
                         {item.description}
                       </p>
                     </div>
@@ -309,8 +309,8 @@ export default function AlanLeePortfolio() {
                 {/* Toolkit + Enjoys Cards */}
                 <div className="mt-10 grid gap-6 md:grid-cols-2">
                   <div className="group rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7  transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)]">
-                    <h4 className="text-2xl text-[#1f1c19] mb-4">Toolkit</h4>
-                    <ul className="space-y-2 text-[#4b443d]">
+                    <h4 className="text-2xl text-black mb-4">Toolkit</h4>
+                    <ul className="space-y-2 text-black">
                       <li>Scheduling (P6, MS Project)</li>
                       <li>Estimating & Takeoffs</li>
                       <li>Field Coordination</li>
@@ -320,8 +320,8 @@ export default function AlanLeePortfolio() {
                   </div>
 
                   <div className="group rounded-[2rem] border border-[#ddd5ca] bg-[#faf7f2] p-7  transition duration-300 hover:-translate-y-2 hover:shadow-[0_28px_60px_rgba(31,28,25,0.10)]">
-                    <h4 className="text-2xl text-[#1f1c19] mb-4">Enjoys</h4>
-                    <ul className="space-y-2 text-[#4b443d]">
+                    <h4 className="text-2xl text-black mb-4">Enjoys</h4>
+                    <ul className="space-y-2 text-black">
                       <li>Hands-on Building - Carpentry</li>
                       <li>Real Estate & Development</li>
                       <li>Photography</li>
@@ -342,7 +342,7 @@ export default function AlanLeePortfolio() {
                   <p className="text-xs uppercase tracking-[0.35em] text-[#8b8175]">
                     Selected Work
                   </p>
-                  <h3 className="mt-5 text-4xl text-[#1f1c19] md:text-5xl">Project Gallery</h3>
+                  <h3 className="mt-5 text-4xl text-black md:text-5xl">Project Gallery</h3>
                 </div>
 
                 <div className="flex items-center gap-3">
@@ -384,7 +384,7 @@ export default function AlanLeePortfolio() {
                         <div className="absolute inset-0 bg-[linear-gradient(160deg,rgba(255,255,255,0.18),rgba(124,63,44,0.08),rgba(31,28,25,0.04))] transition duration-300 group-hover:scale-105" />
                       </div>
                       <div className="space-y-2 p-6">
-                        <h4 className="text-2xl leading-tight text-[#1f1c19]">
+                        <h4 className="text-2xl leading-tight text-black">
                           {item.title}
                         </h4>
                         <p className="leading-7 text-[#5f574f]">{item.subtitle}</p>
@@ -397,7 +397,7 @@ export default function AlanLeePortfolio() {
 
             <section
               id="contact"
-              className={`border-t border-[#d9d0c4] bg-[#f3eee7] text-[#1f1c19] ${reveal("delay-500")}`}
+              className={`border-t border-[#d9d0c4] bg-[#f3eee7] text-black ${reveal("delay-500")}`}
             >
               <div className="mx-auto max-w-7xl px-6 py-24 md:px-10">
                 <div className="mb-12">
@@ -458,7 +458,7 @@ export default function AlanLeePortfolio() {
         <p className="text-xs uppercase tracking-[0.35em] text-[#8b8175]">
           Background
         </p>
-        <h2 className="mt-5 text-5xl leading-tight text-[#1f1c19] md:text-6xl">
+        <h2 className="mt-5 text-5xl leading-tight text-black md:text-6xl">
           About Me
         </h2>
         <div className="mt-6 h-px w-28 bg-[#7c3f2c]/80" />
@@ -471,7 +471,7 @@ export default function AlanLeePortfolio() {
             to build a career around it.
           </p>
         </div>
-        <div className="space-y-7 text-lg leading-9 text-[#4b443d]">
+        <div className="space-y-7 text-lg leading-9 text-black">
           <p>
             I was introduced to construction early on, around age 12, when my
             parents started renovating and flipping houses. I would tag along
@@ -513,7 +513,7 @@ export default function AlanLeePortfolio() {
 
   return (
     <div
-      className="min-h-screen bg-[#f7f4ef] text-[#1f1c19]"
+      className="min-h-screen bg-[#f7f4ef] text-black"
       style={{ fontFamily: 'Georgia, "Times New Roman", serif' }}
     >
       {header}
