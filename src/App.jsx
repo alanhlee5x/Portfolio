@@ -129,7 +129,7 @@ export default function AlanLeePortfolio() {
     {
       title: "Construction Management Student",
       company: "University of Washington",
-      period: "Expected June 2026",
+      period: "Expected March 2027",
       description:
         "Focused on construction operations, project delivery, scheduling, estimating, and field coordination.",
     },
@@ -286,10 +286,11 @@ export default function AlanLeePortfolio() {
                 className="max-w-3xl text-lg leading-9 text-[#4b443d] md:text-[24px]"
                 style={{ fontFamily: '"Times New Roman", Times, serif' }}
               >
-                Construction Management senior at the University of Washington,
-                currently working as a Project Engineer at Venture General
-                Contracting, with a growing focus on residential development and
-                strong interests in business, sales, and management.
+                Construction Management senior at the University of Washington
+                with hands-on experience in project engineering and residential
+                construction. Focused on building a career in construction and
+                real estate development, with strong interests in business,
+                sales, and project management.
               </p>
             </div>
           </div>
@@ -555,38 +556,41 @@ export default function AlanLeePortfolio() {
         </div>
         <div className="space-y-7 text-lg leading-9 text-[#4b443d]">
           <p>
-            I was introduced to construction early on, around age 12, when my
-            parents started renovating and flipping houses. I would tag along
-            whenever I could, helping out in small ways—painting, holding
-            flashlights, carrying materials—just trying to be part of the
-            process. That early exposure stuck with me and sparked a genuine
-            interest in building.
+            I was introduced to construction pretty early. When I was around 12,
+            my parents started renovating and flipping houses, and I would tag
+            along whenever I could. At first, that meant painting, holding
+            flashlights, carrying materials, and doing whatever small jobs
+            needed to be done. I mostly just wanted to be involved, but over
+            time I became genuinely interested in how things were built and how
+            a project came together.
           </p>
           <p>
-            In high school, I joined Sawhorse Revolution, where I spent my
-            summers working on community-based construction projects around the
-            Seattle area. Alongside a team of 10–15 students, I helped build
-            projects for local nonprofits, including a tool shed at the Danny
-            Woo Community Garden, a gallery space for Lighthouse for the Blind,
-            a wooden boat for Duwamish River cleanup efforts, and Estelita’s
-            Library, a small community book exchange. Those experiences gave me
-            hands-on skills, but more importantly, they showed me the impact
-            construction can have beyond just the physical structure.
+            In high school, I joined Sawhorse Revolution and spent my summers
+            working on community construction projects around Seattle. With a
+            team of 10 to 15 students, I worked on projects for local
+            nonprofits, including a tool shed at the Danny Woo Community Garden,
+            a gallery space for Lighthouse for the Blind, a wooden boat used in
+            Duwamish River cleanup efforts, and Estelita’s Library, a small
+            community book exchange. I learned a lot about building during those
+            summers, but I also started to see construction differently. The
+            work was not only about what we built, but who we were building it
+            for and how the finished project would be used.
           </p>
           <p>
-            I later returned to the program as a mentor, helping guide new
-            students and support project organization. That shift—from learning
-            to leading—pushed me in new ways and deepened my appreciation for
-            both the work and the people involved.
+            I eventually returned to Sawhorse as a mentor, this time helping
+            newer students learn the same skills I had picked up a few years
+            earlier. I took on more responsibility, helped keep projects
+            organized, and learned how much good communication and teamwork
+            matter on a jobsite.
           </p>
           <p>
-            When I got to college, choosing construction management felt like a
-            natural next step. What I enjoy most about construction is how
-            tangible it is—you take something that exists only on paper and turn
-            it into something real. There’s a real sense of responsibility in
-            that, but also a lot of satisfaction. At the end of the day, you’re
-            not just building structures—you’re building homes, workplaces, and
-            spaces that people rely on every day.
+            By the time I got to college, studying construction management felt
+            like the obvious direction for me. What I still enjoy most about
+            construction is seeing something go from a set of drawings and ideas
+            to a finished building you can actually walk through. There is
+            something satisfying about being part of that process and knowing
+            the work will become a home, workplace, or space that people use
+            every day.
           </p>
         </div>
       </div>
