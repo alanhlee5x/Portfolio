@@ -252,13 +252,17 @@ export default function AlanLeePortfolio() {
             <img
               src="/hero-bg.jpg"
               alt="Hero background"
-              className="w-full h-full object-cover opacity-60"
+              className="w-full h-full scale-105 object-cover opacity-60 blur-[2px]"
             />
             <div className="absolute inset-0 bg-white/40" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(247,244,239,0.9)_0%,rgba(247,244,239,0.7)_45%,rgba(247,244,239,0)_78%)]" />
           </div>
 
-          <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 text-center md:px-10">
-            <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#0d0d0d] md:text-xs">
+          <div
+            className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 text-center md:px-10"
+            style={{ textShadow: "0 0 8px #f7f4ef, 0 0 3px #f7f4ef, 0 0 2px #f7f4ef" }}
+          >
+            <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-[#0d0d0d] md:text-sm">
               <span>Construction Management</span>
               <span className="text-[#7c3f2c]">•</span>
               <span>Real Estate</span>
@@ -272,7 +276,7 @@ export default function AlanLeePortfolio() {
                   Alan H. <span className="text-[#7c3f2c]">Lee</span>
                 </h2>
                 <p
-                  className={`mt-4 whitespace-nowrap text-sm uppercase tracking-[0.25em] text-[#0d0d0d] transition-all duration-1200 ease-out ${
+                  className={`mt-4 whitespace-nowrap text-sm font-bold uppercase tracking-[0.22em] text-[#0d0d0d] md:text-base transition-all duration-1200 ease-out ${
                     isLoaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"
                   }`}
                 >
@@ -283,7 +287,7 @@ export default function AlanLeePortfolio() {
               </div>
 
               <p
-                className="max-w-3xl text-lg leading-9 text-[#0d0d0d] md:text-[24px]"
+                className="max-w-3xl rounded-3xl bg-[#f7f4ef]/75 px-6 py-5 text-lg leading-9 text-[#0d0d0d] backdrop-blur-md md:text-[24px]"
                 style={{ fontFamily: '"Times New Roman", Times, serif' }}
               >
                 Construction Management senior at the University of Washington
