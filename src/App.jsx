@@ -258,7 +258,7 @@ export default function AlanLeePortfolio() {
           </div>
 
           <div className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 text-center md:px-10">
-            <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#6f655b] md:text-xs">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-[11px] uppercase tracking-[0.24em] text-[#0d0d0d] md:text-xs">
               <span>Construction Management</span>
               <span className="text-[#7c3f2c]">•</span>
               <span>Real Estate</span>
@@ -268,11 +268,11 @@ export default function AlanLeePortfolio() {
 
             <div className="mt-8 flex flex-col items-center space-y-8">
               <div className="flex flex-col items-center">
-                <h2 className="max-w-6xl text-7xl leading-[0.88] tracking-[-0.05em] text-[#1f1c19] md:text-[10rem] xl:text-[12rem]">
+                <h2 className="max-w-6xl text-7xl leading-[0.88] tracking-[-0.05em] text-[#0d0d0d] md:text-[10rem] xl:text-[12rem]">
                   Alan H. <span className="text-[#7c3f2c]">Lee</span>
                 </h2>
                 <p
-                  className={`mt-4 whitespace-nowrap text-sm uppercase tracking-[0.25em] text-[#8b8175] transition-all duration-1200 ease-out ${
+                  className={`mt-4 whitespace-nowrap text-sm uppercase tracking-[0.25em] text-[#0d0d0d] transition-all duration-1200 ease-out ${
                     isLoaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"
                   }`}
                 >
@@ -283,7 +283,7 @@ export default function AlanLeePortfolio() {
               </div>
 
               <p
-                className="max-w-3xl text-lg leading-9 text-[#4b443d] md:text-[24px]"
+                className="max-w-3xl text-lg leading-9 text-[#0d0d0d] md:text-[24px]"
                 style={{ fontFamily: '"Times New Roman", Times, serif' }}
               >
                 Construction Management senior at the University of Washington
@@ -550,8 +550,7 @@ export default function AlanLeePortfolio() {
       <div className="grid gap-14 md:grid-cols-[0.7fr_1.3fr]">
         <div>
           <p className="text-lg leading-8 text-[#5f574f]">
-            A more personal look at how I got into construction and why I chose
-            to build a career around it.
+            A more personal look at how I got into construction and what made me passionate about building.
           </p>
         </div>
         <div className="space-y-7 text-lg leading-9 text-[#4b443d]">
