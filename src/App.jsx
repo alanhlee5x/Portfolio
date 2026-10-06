@@ -262,7 +262,7 @@ export default function AlanLeePortfolio() {
             className="relative mx-auto flex max-w-7xl flex-col items-center justify-center px-6 text-center md:px-10"
             style={{ textShadow: "0 0 8px #f7f4ef, 0 0 3px #f7f4ef, 0 0 2px #f7f4ef" }}
           >
-            <div className="flex flex-wrap items-center justify-center gap-3 text-sm font-bold uppercase tracking-[0.18em] text-[#0d0d0d] [-webkit-text-stroke:0.5px_#0d0d0d] md:text-base">
+            <div className="flex flex-wrap items-center justify-center gap-3 text-xs font-bold uppercase tracking-[0.2em] text-[#0d0d0d] md:text-sm">
               <span>Construction Management</span>
               <span className="text-[#7c3f2c]">•</span>
               <span>Real Estate</span>
@@ -276,7 +276,7 @@ export default function AlanLeePortfolio() {
                   Alan H. <span className="text-[#7c3f2c]">Lee</span>
                 </h2>
                 <p
-                  className={`mt-4 whitespace-nowrap text-base font-bold uppercase tracking-[0.2em] text-[#0d0d0d] [-webkit-text-stroke:0.5px_#0d0d0d] md:text-lg transition-all duration-1200 ease-out ${
+                  className={`mt-4 whitespace-nowrap text-sm font-bold uppercase tracking-[0.22em] text-[#0d0d0d] md:text-base transition-all duration-1200 ease-out ${
                     isLoaded ? "opacity-100 blur-0" : "opacity-0 blur-sm"
                   }`}
                 >
