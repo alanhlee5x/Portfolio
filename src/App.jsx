@@ -129,7 +129,7 @@ export default function AlanLeePortfolio() {
     {
       title: "Construction Management Student",
       company: "University of Washington",
-      period: "Expected March 2027",
+      period: "Sept 2023 - Expected Mar 2027",
       description:
         "Focused on construction operations, project delivery, scheduling, estimating, and field coordination.",
     },
@@ -143,7 +143,7 @@ export default function AlanLeePortfolio() {
     {
       title: "Program Mentor",
       company: "Sawhorse Revolution",
-      period: "Sept 2022 - Dec 2024",
+      period: "June 2021 - Mar 2024",
       description:
         "Mentored students in hands-on building work, power tool safety, and jobsite habits.",
     },
